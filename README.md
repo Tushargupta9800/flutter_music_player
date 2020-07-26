@@ -19,6 +19,10 @@ Building this Application eith the motive of learning flutter better<bt/>
 
 [feelmusic.apk](https://github.com/Tushargupta9800/flutter_music_player/blob/master/feelmusic.apk)
 
+# Dependencies used:-
+1) deepmusicfinder:
+2) permission_handler: ^4.2.0+hotfix.3
+3) audioplayers:
 
 ## Getting Started
 
