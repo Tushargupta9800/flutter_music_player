@@ -4,6 +4,11 @@ A new Flutter application.<br/>
 This is my first Application in the category of Music and Audio<br/>
 Building this Application eith the motive of learning flutter better<bt/>
 
+# Screenshots:-
+|Screenshot1|Screenshot2|Screenshot3|Screenshot4|
+:-------:|:-------:|:-------:|:-----:
+<img src="https://github.com/Tushargupta9800/flutter_music_player/blob/master/Screenshots/Screenshot1.jpg" height="350em" />|<img src="https://github.com/Tushargupta9800/flutter_music_player/blob/master/Screenshots/Screenshot2.jpg" height="350em" />|<img src="https://github.com/Tushargupta9800/flutter_music_player/blob/master/Screenshots/Screenshot3.jpg" height="350em" />|<img src="https://github.com/Tushargupta9800/flutter_music_player/blob/master/Screenshots/Screenshot4.jpg" height="350em" />|
+
 # Features:-
 1) Load all the songs from the device.
 2) Play and pause the music.
