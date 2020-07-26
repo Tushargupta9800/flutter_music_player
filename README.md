@@ -1,8 +1,8 @@
 # Feel Music(FM)
 
 A new Flutter application.<br/>
-This is my first Application in the category of Music and Audio<br/>
-Building this Application eith the motive of learning flutter better<bt/>
+This is my first Application in the category of Music and Audio.<br/>
+Building this Application with the motive of learning flutter better.<bt/>
 
 # Screenshots:-
 |Main Screen|Playing Songs|All Playlist|Edit Playlist songs|
