@@ -24,6 +24,9 @@ Building this Application eith the motive of learning flutter better<bt/>
 2) permission_handler: ^4.2.0+hotfix.3
 3) audioplayers:
 
+# Android Permissions used:-
+1) uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" /
+
 ## Getting Started
 
 This project is a starting point for a Flutter application.
