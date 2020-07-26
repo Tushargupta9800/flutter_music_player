@@ -15,6 +15,10 @@ Building this Application eith the motive of learning flutter better<bt/>
 8) You can delete your own playlist.
 9) Contains Splash Screen.
 
+# Download the Apk file here:-
+
+[feelmusic.apk](https://github.com/Tushargupta9800/flutter_music_player/blob/master/feelmusic.apk)
+
 
 ## Getting Started
 
