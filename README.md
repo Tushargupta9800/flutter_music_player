@@ -1,8 +1,12 @@
-# Feel Music(FM)
+# Feel Music(FM) 🎶🎵🎼🎹
 
-A new Flutter application.<br/>
-This is my first Application in the category of Music and Audio.<br/>
-Building this Application with the motive of learning flutter better.<bt/>
+A new Flutter application.👤<br/>
+This is my first Application in the category of Music and Audio.😎<br/>
+I kept the Interface very Simple.🙂<br/>
+The name of this Application is Feel Music.🎶<br/>
+Building this Application with the intention of learning flutter better.🚴<br/>
+This repo also contains the apk file 📱 too (link below).<br/>
+Do not hesitate to raise the issue if you find any bug(S).🤞<br/>
 
 # Screenshots:-
 |Main Screen|Playing Songs|All Playlist|Edit Playlist songs|
@@ -10,15 +14,15 @@ Building this Application with the motive of learning flutter better.<bt/>
 <img src="https://github.com/Tushargupta9800/flutter_music_player/blob/master/Screenshots/Screenshot1.jpg" height="350em" />|<img src="https://github.com/Tushargupta9800/flutter_music_player/blob/master/Screenshots/Screenshot5.jpeg" height="350em" />|<img src="https://github.com/Tushargupta9800/flutter_music_player/blob/master/Screenshots/Screenshot3.jpg" height="350em" />|<img src="https://github.com/Tushargupta9800/flutter_music_player/blob/master/Screenshots/Screenshot4.jpg" height="350em" />|
 
 # Features:-
-1) Load all the songs from the device.
-2) Play and pause the music.
-3) Play next and prev song in one click.
-4) seek to 10 seconds forward or backward in one click.
-5) Play the songs in Shuffle order.
-6) You can make your own playlist(As many as you want).
-7) You can edit your own playlist songs.
-8) You can delete your own playlist.
-9) Contains Splash Screen.
+1) Load all the songs from the device.👌
+2) Play ▶ and pause ⏸ the music.
+3) Play next ⏩ and prev ⏪ song in 1️⃣ click.
+4) seek to 🔟 seconds forward or backward in 1️⃣ click.
+5) Play ▶ the songs in Shuffle 🔀 order.
+6) You can make your own playlist(As many as you want 😱).
+7) You can edit 🐱‍🏍 your own playlist songs.
+8) You can delete 🗑 your own playlist.
+9) Contains Splash Screen. ✔
 
 # Download the Apk file here:-
 
