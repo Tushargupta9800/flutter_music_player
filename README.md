@@ -7,7 +7,7 @@ Building this Application with the motive of learning flutter better.<bt/>
 # Screenshots:-
 |Main Screen|Playing Songs|All Playlist|Edit Playlist songs|
 :-------:|:-------:|:-------:|:-----:
-<img src="https://github.com/Tushargupta9800/flutter_music_player/blob/master/Screenshots/Screenshot1.jpg" height="350em" />|<img src="https://github.com/Tushargupta9800/flutter_music_player/blob/master/Screenshots/Screenshot5.jpg" height="350em" />|<img src="https://github.com/Tushargupta9800/flutter_music_player/blob/master/Screenshots/Screenshot3.jpg" height="350em" />|<img src="https://github.com/Tushargupta9800/flutter_music_player/blob/master/Screenshots/Screenshot4.jpg" height="350em" />|
+<img src="https://github.com/Tushargupta9800/flutter_music_player/blob/master/Screenshots/Screenshot1.jpg" height="350em" />|<img src="https://github.com/Tushargupta9800/flutter_music_player/blob/master/Screenshots/Screenshot5.jpeg" height="350em" />|<img src="https://github.com/Tushargupta9800/flutter_music_player/blob/master/Screenshots/Screenshot3.jpg" height="350em" />|<img src="https://github.com/Tushargupta9800/flutter_music_player/blob/master/Screenshots/Screenshot4.jpg" height="350em" />|
 
 # Features:-
 1) Load all the songs from the device.
