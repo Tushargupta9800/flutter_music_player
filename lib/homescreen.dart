@@ -128,6 +128,7 @@ class _HomeState extends State<Home> with TickerProviderStateMixin{
     this.getPermissionagain();
     audioPlayer.durationHandler = (d) => setState(() {complete = d;});
     audioPlayer.positionHandler = (p) => setState(() {current = p;});
+    audioPlayer.completionHandler = () {setState(() {getnextsong();});};
     loadplaylist();
   }
 
