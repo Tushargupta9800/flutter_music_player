@@ -19,10 +19,11 @@ Do not hesitate to raise the issue if you find any bug(S).🤞<br/>
 3) Play next ⏩ and prev ⏪ song in 1️⃣ click.
 4) seek to 🔟 seconds forward or backward in 1️⃣ click.
 5) Play ▶ the songs in Shuffle 🔀 order.
-6) You can make your own playlist(As many as you want 😱).
-7) You can edit 🐱‍🏍 your own playlist songs.
-8) You can delete 🗑 your own playlist.
-9) Contains Splash Screen. ✔
+6) Play the songs in background. ❤
+7) You can make your own playlist(As many as you want 😱).
+8) You can edit 🐱‍🏍 your own playlist songs.
+9) You can delete 🗑 your own playlist.
+10) Contains Splash Screen. ✔
 
 # Download the Apk file here:-
 
