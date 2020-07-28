@@ -46,7 +46,7 @@ class _splashscreenState extends State<splashscreen> {
               children: [
                 Container(
                   padding: EdgeInsets.only(right: 20.0),
-                  child: Text("-Version: 2.0.0",
+                  child: Text("-Version: 2.1.0",
                     style: TextStyle(
                         fontWeight: FontWeight.bold,
                         fontSize: 15.0,
