@@ -9,6 +9,7 @@ import 'package:flutter/services.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'head.dart';
 import 'getplaylist.dart';
+import 'package:flutter_media_notification/flutter_media_notification.dart';
 
 class Home extends StatefulWidget {
   @override
@@ -22,6 +23,7 @@ class _HomeState extends State<Home> with TickerProviderStateMixin{
   List<Map<dynamic, dynamic>> playlistsongsList = [];
   Deepmusicfinder musicfinder;
   AudioPlayer audioPlayer = AudioPlayer();
+  AudioPlayer nomusic = AudioPlayer();
   bool isplaying = false;
   int playingindex = -1;
   bool weedit = false;
@@ -39,6 +41,7 @@ class _HomeState extends State<Home> with TickerProviderStateMixin{
   String playingplaylist = "AllSongs";
   bool textfield = false;
   bool didweedit = false;
+  bool repeat = false;
   TextEditingController txtcontroller = TextEditingController();
   bool isplayingnextsong = false;
 
@@ -126,9 +129,19 @@ class _HomeState extends State<Home> with TickerProviderStateMixin{
     musicfinder = new Deepmusicfinder();
     this.getPermission();
     this.getPermissionagain();
+    nomusic.play("http://www.minidisc.org/charman/1sec.mp3",stayAwake: true);
+    nomusic.completionHandler = () {setState(() {
+      print("here");
+      nomusic.play("http://www.minidisc.org/charman/1sec.mp3", stayAwake: true);
+      audioPlayer.completionHandler = () {print("where"); setState(() {forward();});};});};
     audioPlayer.durationHandler = (d) => setState(() {complete = d;});
     audioPlayer.positionHandler = (p) => setState(() {current = p;});
     audioPlayer.completionHandler = () {setState(() {getnextsong();});};
+    MediaNotification.setListener('pause', () {setState(() {audioPlayer.pause(); ispause = true;});});
+    MediaNotification.setListener('play', () {setState(() {audioPlayer.resume(); ispause = false;});});
+    MediaNotification.setListener('next', () {forward();});
+    MediaNotification.setListener('prev', () {back();});
+    MediaNotification.setListener('select', () {setState(() {});});
     loadplaylist();
   }
 
@@ -140,8 +153,16 @@ class _HomeState extends State<Home> with TickerProviderStateMixin{
   }
 
   play(int index) async {
-    try {isplaying? await audioPlayer.play(playlistsongsList[index]['path'], isLocal: true): await audioPlayer.stop();}
+    shownotification(index,true);
+    try {isplaying? await audioPlayer.play(playlistsongsList[index]['path'], isLocal: true,stayAwake: true): await audioPlayer.stop();}
     catch (err) {print(err);}
+  }
+
+  shownotification(int index,bool what){
+    MediaNotification.showNotification(
+      title: playlistsongsList[index]["Title"],
+      isPlaying: what,
+    );
   }
 
   Widget songBuilder(BuildContext context, int index) {
@@ -179,8 +200,8 @@ class _HomeState extends State<Home> with TickerProviderStateMixin{
         onTap: () {
            setState(() {
             ispause = false;
-            if(playingindex == index){ playingindex = -1; isplaying = false; audioPlayer.stop(); }
-            else{ isplaying = true; this.play(index); playingindex = index;}
+            if(playingindex == index){ playingindex = -1; isplaying = false; audioPlayer.stop(); shownotification(index,false);}
+            else{ isplaying = true; this.play(index); playingindex = index; shownotification(index,true);}
           });
         },
       ),
@@ -225,6 +246,7 @@ class _HomeState extends State<Home> with TickerProviderStateMixin{
                   playingplaylist = "AllSongs";
                   playlistsongsList = [];
                   playlistsongsList.addAll(songsList);
+                  MediaNotification.hideNotification();
                 }
                else {
                   whichplaylist = PlaylistString[index];
@@ -369,24 +391,79 @@ class _HomeState extends State<Home> with TickerProviderStateMixin{
         isnotfirst = false;
         isplayingnextsong = true;
         ispause = false;
-        if(playrandom){
+        if(repeat){
+          audioPlayer.play(playlistsongsList[playingindex]['path'], isLocal: true,stayAwake: true);
+        }
+        else if(playrandom){
           var tempplayingindex = Random().nextInt(playlistsongsList.length);
           while(tempplayingindex == playingindex){
             tempplayingindex = Random().nextInt(playlistsongsList.length);
           }
           playingindex = tempplayingindex;
-          audioPlayer.play(playlistsongsList[playingindex]['path'], isLocal: true);
+          audioPlayer.play(playlistsongsList[playingindex]['path'], isLocal: true,stayAwake: true);
         }
         else {
           playingindex ++;
           if (playingindex > playlistsongsList.length - 1) {
             playingindex = 0;
           }
-          audioPlayer.play(playlistsongsList[playingindex]['path'], isLocal: true);
+          audioPlayer.play(playlistsongsList[playingindex]['path'], isLocal: true,stayAwake: true);
         }
       });
     }
+    shownotification(playingindex, true);
     return Container();
+  }
+
+  forward(){
+    shownotification(playingindex, true);
+    ispause = false;
+    if(playrandom){
+      var tempplayingindex = Random().nextInt(playlistsongsList.length);
+      while(tempplayingindex == playingindex){
+        tempplayingindex = Random().nextInt(playlistsongsList.length);
+      }
+      playingindex = tempplayingindex;
+      audioPlayer.play(playlistsongsList[playingindex]['path'], isLocal: true,stayAwake: true);
+    }
+    else {
+      playingindex += 1;
+      if (playingindex > playlistsongsList.length - 1) {
+        playingindex = 0;
+      }
+      setState(() {
+        audioPlayer.play(playlistsongsList[playingindex]["path"],
+            isLocal: true,stayAwake: true);
+      });
+    }
+    shownotification(playingindex, true);
+  }
+
+  back(){
+    shownotification(playingindex, true);
+    ispause = false;
+    if(playrandom){
+
+      var tempplayingindex = Random().nextInt(playlistsongsList.length);
+      while(tempplayingindex == playingindex){
+        tempplayingindex = Random().nextInt(playlistsongsList.length);
+      }
+      playingindex = tempplayingindex;
+      print("playingindex: $playingindex");
+      audioPlayer.play(playlistsongsList[playingindex]['path'], isLocal: true,stayAwake: true);
+    }
+    else {
+      playingindex -= 1;
+      if (playingindex < 0) {
+        playingindex = playlistsongsList.length - 1;
+      }
+      setState(() {
+        shownotification(playingindex, true);
+        audioPlayer.play(playlistsongsList[playingindex]["path"],
+            isLocal: true,stayAwake: true);
+      });
+    }
+    shownotification(playingindex, true);
   }
 
   gettab(){
@@ -420,10 +497,19 @@ class _HomeState extends State<Home> with TickerProviderStateMixin{
                     GestureDetector(
                       onTap: () {
                         setState(() {
-                          playrandom = !playrandom;
+                          if(playrandom && !repeat){
+                            playrandom = false;
+                          }
+                          else if(!playrandom && !repeat){
+                            repeat = true;
+                          }
+                          else if(repeat){
+                            repeat = false;
+                            playrandom = true;
+                          }
                         });
                       },
-                      child: Icon(Icons.shuffle, color: (playrandom)?Colors.yellowAccent:Colors.white,),
+                      child: Icon((!repeat)?Icons.shuffle:Icons.repeat_one, color: (playrandom)?Colors.yellowAccent:Colors.white,),
                     ),
                     (!ispause)?GestureDetector(
                         onTap: () {
@@ -435,31 +521,12 @@ class _HomeState extends State<Home> with TickerProviderStateMixin{
                         child: Icon(Icons.replay_10,color: Colors.white,)):Container(),
                     GestureDetector(
                         onTap: () {
-                          ispause = false;
-                          if(playrandom){
-
-                            var tempplayingindex = Random().nextInt(playlistsongsList.length);
-                            while(tempplayingindex == playingindex){
-                              tempplayingindex = Random().nextInt(playlistsongsList.length);
-                            }
-                            playingindex = tempplayingindex;
-                            print("playingindex: $playingindex");
-                            audioPlayer.play(playlistsongsList[playingindex]['path'], isLocal: true);
-                          }
-                          else {
-                            playingindex -= 1;
-                            if (playingindex < 0) {
-                              playingindex = playlistsongsList.length - 1;
-                            }
-                            setState(() {
-                              audioPlayer.play(playlistsongsList[playingindex]["path"],
-                                  isLocal: true);
-                            });
-                          }
+                          back();
                         },
                         child: Icon(Icons.fast_rewind,color: Colors.white,)),
                     GestureDetector(
                         onTap: () {
+                          shownotification(playingindex,(ispause)?true:false);
                           if(ispause){audioPlayer.resume();}
                           if(!ispause){audioPlayer.pause();}
                           setState(() {ispause = !ispause;});
@@ -467,25 +534,7 @@ class _HomeState extends State<Home> with TickerProviderStateMixin{
                         child: Icon((ispause)?Icons.play_arrow:Icons.pause,color: Colors.white,)),
                     GestureDetector(
                         onTap: () {
-                          ispause = false;
-                          if(playrandom){
-                            var tempplayingindex = Random().nextInt(playlistsongsList.length);
-                            while(tempplayingindex == playingindex){
-                              tempplayingindex = Random().nextInt(playlistsongsList.length);
-                            }
-                            playingindex = tempplayingindex;
-                            audioPlayer.play(playlistsongsList[playingindex]['path'], isLocal: true);
-                          }
-                          else {
-                            playingindex += 1;
-                            if (playingindex > playlistsongsList.length - 1) {
-                              playingindex = 0;
-                            }
-                            setState(() {
-                              audioPlayer.play(playlistsongsList[playingindex]["path"],
-                                  isLocal: true);
-                            });
-                          }
+                          forward();
                         },
                         child: Icon(Icons.fast_forward,color: Colors.white,)),
                     (!ispause)?GestureDetector(
@@ -704,6 +753,7 @@ class _HomeState extends State<Home> with TickerProviderStateMixin{
                           child: GestureDetector(
                             child: Icon(Icons.play_circle_outline,color: Colors.white,size: 30.0,),
                             onTap: () async {
+                              MediaNotification.hideNotification();
                               if(didweedit){
                               choosensongsList = [];
                               choosensongsList.addAll(tempsongsList);
