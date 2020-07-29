@@ -13,6 +13,10 @@ Do not hesitate to raise the issue if you find any bug(S).🤞<br/>
 :-------:|:-------:|:-------:|:-----:
 <img src="https://github.com/Tushargupta9800/flutter_music_player/blob/master/Screenshots/Screenshot1.jpg" height="350em" />|<img src="https://github.com/Tushargupta9800/flutter_music_player/blob/master/Screenshots/Screenshot5.jpeg" height="350em" />|<img src="https://github.com/Tushargupta9800/flutter_music_player/blob/master/Screenshots/Screenshot3.jpg" height="350em" />|<img src="https://github.com/Tushargupta9800/flutter_music_player/blob/master/Screenshots/Screenshot4.jpg" height="350em" />|
 
+|Notifications|
+:-------:
+<img src="https://github.com/Tushargupta9800/flutter_music_player/blob/master/Screenshots/Screenshot6.jpg" height="350em" />|
+
 # Features:-
 1) Load all the songs from the device.👌
 2) Play ▶ and pause ⏸ the music.
