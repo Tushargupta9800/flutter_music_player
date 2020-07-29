@@ -20,10 +20,12 @@ Do not hesitate to raise the issue if you find any bug(S).🤞<br/>
 4) seek to 🔟 seconds forward or backward in 1️⃣ click.
 5) Play ▶ the songs in Shuffle 🔀 order.
 6) Play the songs in background. ❤
-7) You can make your own playlist(As many as you want 😱).
-8) You can edit 🐱‍🏍 your own playlist songs.
-9) You can delete 🗑 your own playlist.
-10) Contains Splash Screen. ✔
+7) Change the song from notifications. 🙊
+8) enjoy the music even when the phone screen is off. 🙈
+9) You can make your own playlist(As many as you want 😱).
+10) You can edit 🐱‍🏍 your own playlist songs.
+11) You can delete 🗑 your own playlist.
+12) Contains Splash Screen. ✔
 
 # Download the Apk file here:-
 
@@ -33,6 +35,7 @@ Do not hesitate to raise the issue if you find any bug(S).🤞<br/>
 1) deepmusicfinder:
 2) permission_handler: ^4.2.0+hotfix.3
 3) audioplayers:
+4) flutter_media_notification:
 
 # Android Permissions used:-
 1) uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" /
