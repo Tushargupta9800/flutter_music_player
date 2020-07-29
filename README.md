@@ -39,6 +39,8 @@ Do not hesitate to raise the issue if you find any bug(S).🤞<br/>
 
 # Android Permissions used:-
 1) uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" /
+2) <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/
+3) <uses-permission android:name="android.permission.WAKE_LOCK"/
 
 ## Getting Started
 
