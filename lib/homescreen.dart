@@ -133,7 +133,9 @@ class _HomeState extends State<Home> with TickerProviderStateMixin{
     nomusic.completionHandler = () {setState(() {
       print("here");
       nomusic.play("http://www.minidisc.org/charman/1sec.mp3", stayAwake: true);
-      audioPlayer.completionHandler = () {print("where"); setState(() {forward();});};});};
+      audioPlayer.completionHandler = () {print("where"); setState(() {forward();});};});
+      audioPlayer.positionHandler = (p) => {
+        audioPlayer.durationHandler = (d) => {if(d.inMilliseconds - p.inMilliseconds <= 700){forward(),}}};};
     audioPlayer.durationHandler = (d) => setState(() {complete = d;});
     audioPlayer.positionHandler = (p) => setState(() {current = p;});
     audioPlayer.completionHandler = () {setState(() {getnextsong();});};
