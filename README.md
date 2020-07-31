@@ -49,7 +49,7 @@ Do not hesitate to raise the issue if you find any bug(S).🤞<br/>
 # bug(s):-
 1) You have to turn on the Internet for a few seconds to play the full playlist in Background. <br/>   But still without the internet you can play one song in background and play next and prev songs from notification bar.
 
-## Note:- All the above bugs surely will be fixed in the future update(s)... <br/>
+## Note:- All the above bug(s) surely will be fixed in the future update(s)... <br/>
 
 ## Getting Started
 
