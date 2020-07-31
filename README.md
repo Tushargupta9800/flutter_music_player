@@ -42,9 +42,9 @@ Do not hesitate to raise the issue if you find any bug(S).🤞<br/>
 4) flutter_media_notification:
 
 # Android Permissions used:-
-1) uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" /
-2) <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/
-3) <uses-permission android:name="android.permission.WAKE_LOCK"/
+1) uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"
+2) uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"
+3) uses-permission android:name="android.permission.WAKE_LOCK"
 
 # bug(s):-
 1) You have to turn on the Internet for a few seconds to play the full playlist in Background. <br/>   But still without the internet you can play one song in background and play next and prev songs from notification bar.
