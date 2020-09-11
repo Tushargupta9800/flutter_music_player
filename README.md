@@ -1,4 +1,4 @@
-# Feel Music(FM) 🎶🎵🎼🎹
+# Feel Music(FM) 🎶🎵🎼
 
 A new Flutter application.👤<br/>
 This is my first Application in the category of Music and Audio.😎<br/>
